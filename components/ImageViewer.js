@@ -8,7 +8,7 @@ const imageSource = selectedImage ? { uri: selectedImage } : placeholderImageSou
         <Image source={imageSource} style={styles.image} />
     );
 }
-// imposes a standard width and height on the image
+// Imposes a standard width and height on the image
 const styles = StyleSheet.create({
     image: {
         width: 320,

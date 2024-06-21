@@ -14,6 +14,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 // react-native-view-shot docs at: https://github.com/gre/react-native-view-shot
 import { captureRef } from "react-native-view-shot";
 
+// Imports from the components folder
 import Button from "./components/Button";
 import ImageViewer from "./components/ImageViewer";
 import IconButton from "./components/IconButton";
@@ -130,8 +131,17 @@ export default function App() {
         {showAppOptions ? (
           <View style={styles.optionsContainer}>
             <View style={styles.optionsRow}>
+              {/*
+                refresh is an icon imported from the MaterialIcons library. Reset is the label for the IconButton component. onPress is the event handler for the IconButton component, which calls the onReset function.
+              */}
               <IconButton icon="refresh" label="Reset" onPress={onReset} />
+              {/*
+                 The CircleButton component is rendered with the onAddSticker event handler. It allows user to add a sticker to the image by opening the emoji picker modal.
+              */}
               <CircleButton onPress={onAddSticker} />
+              {/*
+                save-alt is an icon imported from the MaterialIcons library. Save is the label for the IconButton component. onPress allows users to save their final image.
+              */}
               <IconButton
                 icon="save-alt"
                 label="Save"
@@ -149,13 +159,22 @@ export default function App() {
               label="Choose a photo"
               onPress={pickImageAsync}
             />
+            {/*
+              The Button component is used to display the "Use this photo" button. The onPress prop sets the photo as the selected image and then displays the sticker options.
+            */}
             <Button
               label="Use this photo"
               onPress={() => setShowAppOptions(true)}
             />
           </View>
         )}
+        {/*
+          The prop isVisible is used to instruct the modal to hide or show the modal based on it's current state value. The onClose prop is used to hide the emoji picker modal.
+        */}
         <EmojiPicker isVisible={isModalVisible} onClose={onCloseModal}>
+          {/*
+            onSelect sets the state to the selected emoji. onCloseModal hides the emoji picker modal.
+          */}
           <EmojiList onSelect={setPickedEmoji} onCloseModal={onCloseModal} />
         </EmojiPicker>
         <StatusBar style="light" />

@@ -1,6 +1,9 @@
 import { View, Pressable, StyleSheet } from 'react-native';
+// MaterialIcons documentation: https://icons.expo.fyi/
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
+/*
+ This component only takes onPress as a prop. It passes down functionality to add a sticker to the image.
+*/
 export default function CircleButton({ onPress }) {
   return (
     <View style={styles.circleButtonContainer}>

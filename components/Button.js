@@ -1,9 +1,13 @@
 import { StyleSheet, View, Pressable, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
+// Button component is used to customize buttons on the app. It renders one of two types of buttons based on the theme prop.
 export default function Button({label, theme, onPress}) {
     if (theme === "primary") {
         return (
+            /*
+                The primary theme is used to style the button with a white background and black text color. The button is also given a border with a color of #ffd33d. 
+            */
             <View style={[styles.buttonContainer, { 
                 borderWidth: 4,
                 borderColor: "#ffd33d",
@@ -23,7 +27,7 @@ export default function Button({label, theme, onPress}) {
                 </Pressable>
             </View>
         )
-    }
+    } // If the theme is not primary, the button is styled with a black background and white text color.
         return (
             <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={onPress}>
